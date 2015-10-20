@@ -1,4 +1,4 @@
-Using Mojolicious for Fun and Nonprofit
+Using Mojolicious for Fun and Nonprofit (An Update)
 
 [Lee Johnson](http://leejo.github.io)
 
