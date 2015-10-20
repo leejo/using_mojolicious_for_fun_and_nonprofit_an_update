@@ -4,36 +4,15 @@ Using Mojolicious for Fun and Nonprofit
 
 ~~Swiss Perl Workshop September 2014~~
 
-Austrian Perl Workshop October 2014
+London Perl Workshop December 2015
 
 ---
 ## About Me?
 
----
-## About Me
-
-+ Perl developer for 10+ years
+![me](img/card.jpg)
 
 ---
-## About Me
-
-+ Perl developer for 10+ years
-+ Occasional contributor to CPAN
-
----
-## About Me
-
-+ Perl developer for 10+ years
-+ Occasional contributor to CPAN
-+ More active recently:
-    - Uploading to CPAN ([pause: LEEJO](https://metacpan.org/author/LEEJO))
-    - Forky forky ([github: leejo](https://github.com/leejo))
-    - [Blog](http://leejo.github.io)
-    - Primary maintainer of CGI.pm
-    - This!
-
----
-## About Me
+## About Me?
 
 + Perl developer for 10+ years
 + Occasional contributor to CPAN
@@ -87,6 +66,7 @@ Although many other donation management services are for-profit enterprises, the
 ## Not Fun.
 
 + "Legacy" perl code
+    * CGI.pm
     * No strict or warnings
     * Global variables
     * Poor separation of concerns
@@ -96,11 +76,15 @@ Although many other donation management services are for-profit enterprises, the
     * System/Vendor supplied perl (i.e. old)
 
 ---
+
+![before](img/before.png)
+
+---
 ## This is not *bad* code
 
-+ Running without problem for 10 years
++ Running without problem for 15 years
 + Steady increase in functionality
-+ Almost $100million raised for causes
++ Over $100million raised for causes
 
 It's just not fun code to work with.
 
@@ -245,13 +229,13 @@ The CGI script:
 
 ## An Example
 
-[http://www.givengain.com/activists/projects/](http://www.givengain.com/activists/projects/)
+[http://www.givengain.com/explore/projects/](http://www.givengain.com/explore/projects/)
 
 ---
 
 ## An Example
 
-[http://www.givengain.com/activists/projects/](http://www.givengain.com/activists/projects/)
+[http://www.givengain.com/explore/projects/](http://www.givengain.com/explore/projects/)
 
 Previously:
 
@@ -265,15 +249,15 @@ Previously:
 
 ## An Example
 
-[http://www.givengain.com/activists/projects/](http://www.givengain.com/activists/projects/)
+[http://www.givengain.com/explore/projects/](http://www.givengain.com/explore/projects/)
 
 Now:
 
-+ 50 line Mojolicious controller (fully tested)
-  + calls 150 line Projects object (Moose, DBIC, fully tested)
-  + calls 70 line Categories object (Moose, DBIC, fully tested)
-  + uses 125 line [Template::Toolkit] template
-  + perl 5.16.3 and in the process of upgrade to 5.20.0
++ 350 line Mojolicious controller (fully tested)
+  + calls 500 line Projects object (Moose, roles, DBIC, fully tested)
+  + calls 100 line Categories object (Moose, roles, DBIC, fully tested)
+  + uses 100 line [Template::Toolkit] template
+  + perl 5.16.3 and in the process of upgrade to 5.22.0
 
 ---
 ## An Example
@@ -282,7 +266,7 @@ We can easily enable the new code or rollback to the old code:
 
 ```perl
     # new routes
-    $r->route('/activists/projects/')->to('public-activists#projects');
+    $r->route('/explore/projects/')->to('public-explore#projects');
 
     ...
 
@@ -312,11 +296,11 @@ foreach my $url (
     my $link  = $url->[0];
     my $order = $url->[1];
 
-    $t->get_ok("/activists/projects$link")
+    $t->get_ok("/explore/projects$link")
         ->status_is(200)
-        ->content_like(qr/Explore Activists by Project/i);
+        ->content_like(qr/Explore Projects/i);
 
-    $t->tx->res->content =~ /Explore Activists by Project/i
+    $t->tx->res->content =~ /Explore Projects/i
         && $order->( $t );
 }
 
@@ -341,12 +325,20 @@ sub _ordered_by_influence_points {
 Of course the new code has its own unit tests that exist outside the framework.
 
 ---
+
+![after](img/after.png)
+
+---
+
+![after mobile](img/after_mobile.png)
+
+---
 ## Mojolicious Lessons Learnt?
 
 ---
 ## Mojolicious Lessons Learnt?
 
-Mojolicious moves fast
+Mojolicious moves slightly less fast than it used to
 
 ```
 Day changed to 12 sep 2014
@@ -360,12 +352,14 @@ Day changed to 12 sep 2014
 [3:#mojo(+n)]
 ```
 
+Not as true these days
+
 ---
 ## Mojolicious Lessons Learnt
 
-Mojolicious moves fast
+Mojolicious moves slightly less fast than it used to
 
-![Mojo changes 2014](/img/mojo_changes.png)
+![Mojo changes 5.40 to Oct 2015](/img/mojo_changes.png)
 
 (This has implications that go beyond your code)
 

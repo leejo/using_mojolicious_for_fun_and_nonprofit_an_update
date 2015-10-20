@@ -1,5 +1,63 @@
 
-6.15  2015-08-08
+6.25  2015-10-20
+  - Improved Mojo::DOM::CSS to support selectors with leading and trailing
+    whitespace.
+  - Fixed "0" value bug in Mojo::JSON::Pointer.
+
+6.24  2015-10-13
+  - Improved session security by not storing secrets in the stash and making
+    CSRF tokens much harder to guess.
+  - Improved commands to show all options that can affect their behavior.
+  - Fixed bug in Mojo::JSON::Pointer that prevented JSON Pointers with trailing
+    slash from working correctly. (dolmen)
+  - Fixed support for domains with trailing dot in Mojo::URL.
+
+6.23  2015-10-06
+  - Improved documentation browser CSS.
+  - Fixed bug in Mojo::Transaction::WebSocket where an unsupported protocol
+    could be selected automatically.
+  - Fixed input record separator bug in Mojo::Util. (Zoffix, sri)
+  - Fixed small redirect bug in Mojo::UserAgent::Transactor.
+
+6.22  2015-09-26
+  - Improved Mojo::JSON by reusing JSON::PP boolean constants.
+  - Improved uniq method in Mojo::Collection to accept a callback. (CandyAngel)
+  - Improved first and grep methods in Mojo::Collection to be able to call
+    methods.
+  - Improved support for empty attributes in Mojo::DOM::HTML.
+
+6.21  2015-09-23
+  - Added val method to Mojo::DOM.
+
+6.20  2015-09-15
+  - Deprecated Mojo::UserAgent::CookieJar::collecting in favor of
+    Mojo::UserAgent::CookieJar::ignore.
+  - Improved support for epoll/kqueue in Mojo::IOLoop::Client.
+
+6.19  2015-09-12
+  - Added code of conduct to Mojolicious::Guides::Contributing.
+  - Added ignore attribute to Mojo::UserAgent::CookieJar.
+  - Added tls_version option to Mojo::IOLoop::Server::listen.
+  - Added version parameter to Mojo::Server::Daemon::listen.
+
+6.18  2015-09-02
+  - Improved portability of slurp function in Mojo::Util.
+  - Fixed handling of parameters with multiple values in
+    Mojolicious::Plugin::TagHelpers.
+  - Fixed Makefile.PL to be compliant with version 2 of the CPAN distribution
+    metadata specification. (Grinnz)
+
+6.17  2015-08-21
+  - Improved slurp method in Mojo::Asset::File to only use one file descriptor.
+
+6.16  2015-08-19
+  - Improved check_box, radio_button and select_field tag helpers to handle the
+    attributes "checked" and "selected" correctly.
+  - Improved performance of slurp function in Mojo::Util slightly.
+
+6.15  2015-08-13
+  - Removed deprecated build_body and build_headers methods from Mojo::Content.
+  - Improved Mojo::Transaction::HTTP performance slightly.
   - Fixed warnings in Mojo::DOM.
 
 6.14  2015-07-12
