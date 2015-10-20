@@ -1,0 +1,12 @@
+A talk planned for the 2014 Swiss perl workshop (and perhaps the 2014 Austrian
+perl workshop also, and possibly maybe the 2014 London perl workshop (maybe))
+
+To view the talk slides you will need to install the module App::revealup
+
+Then run:
+
+revealup server presentation.md --port 5000 --theme night --transition none
+
+Slides are then available at http://localhost:5000
+
+examples are in the bin/ directory
