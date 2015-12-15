@@ -359,7 +359,7 @@ Not as true these days
 
 Mojolicious moves slightly less fast than it used to
 
-![Mojo changes 5.40 to Oct 2015](/img/mojo_changes.png)
+![Mojo changes 5.40 to Oct 2015](img/mojo_changes.png)
 
 (This has implications that go beyond your code)
 
